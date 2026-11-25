@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="Module 12 Problem 3"/>
+        <attribute name="authors" value="Student"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-11-25 09:52:22 AM"/>
+        <attribute name="created" value="U3R1ZGVudDsyMDI2LTExLTI1OzA5OjQwOjAwIEFNOzI1MDA="/>
+        <attribute name="edited" value="U3R1ZGVudDsyMDI2LTExLTI1OzA5OjQwOjAwIEFNOzI1MDA="/>
+        <attribute name="edited" value="c2hhbWE7REVTS1RPUC1HSFRTUVVGOzIwMjYtMTEtMjU7MDk6NTI6MjIgQU07MTszMDI3"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="lastNames" type="String" array="True" size="10"/>
+            <declare name="examScores" type="Integer" array="True" size="10"/>
+            <call expression="createSampleFile()"/>
+            <call expression="loadData(lastNames, examScores)"/>
+            <call expression="displayNamesAndScores(lastNames, examScores)"/>
+            <call expression="displayNamesAndScoresReverse(lastNames, examScores)"/>
+            <call expression="displayHighLow(lastNames, examScores)"/>
+        </body>
+    </function>
+    <function name="createSampleFile" type="None" variable="">
+        <parameters/>
+        <body>
+            <open expression="&quot;students.txt&quot;" mode="write"/>
+            <write expression="&quot;Smith&quot;"/>
+            <write expression="88"/>
+            <write expression="&quot;Johnson&quot;"/>
+            <write expression="92"/>
+            <write expression="&quot;Williams&quot;"/>
+            <write expression="79"/>
+            <write expression="&quot;Brown&quot;"/>
+            <write expression="85"/>
+            <write expression="&quot;Jones&quot;"/>
+            <write expression="95"/>
+            <write expression="&quot;Garcia&quot;"/>
+            <write expression="91"/>
+            <write expression="&quot;Miller&quot;"/>
+            <write expression="76"/>
+            <write expression="&quot;Davis&quot;"/>
+            <write expression="84"/>
+            <write expression="&quot;Rodriguez&quot;"/>
+            <write expression="90"/>
+            <write expression="&quot;Martinez&quot;"/>
+            <write expression="89"/>
+            <close mode="write"/>
+        </body>
+    </function>
+    <function name="displayHighLow" type="None" variable="">
+        <parameters>
+            <parameter name="names" type="String" array="True"/>
+            <parameter name="scores" type="Integer" array="True"/>
+        </parameters>
+        <body>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <declare name="highVar" type="Integer" array="False" size=""/>
+            <declare name="highIndex" type="Integer" array="False" size=""/>
+            <declare name="lowVar" type="Integer" array="False" size=""/>
+            <declare name="lowIndex" type="Integer" array="False" size=""/>
+            <assign variable="highVar" expression="0"/>
+            <assign variable="highIndex" expression="0"/>
+            <assign variable="lowVar" expression="999"/>
+            <assign variable="lowIndex" expression="0"/>
+            <for variable="i" start="0" end="9" direction="inc" step="1">
+                <if expression="scores[i] &gt; highVar">
+                    <then>
+                        <assign variable="highVar" expression="scores[i]"/>
+                        <assign variable="highIndex" expression="i"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="scores[i] &lt; lowVar">
+                    <then>
+                        <assign variable="lowVar" expression="scores[i]"/>
+                        <assign variable="lowIndex" expression="i"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+            <output expression="&quot;Highest Score: &quot; &amp; names[highIndex] &amp; &quot; (&quot; &amp; highVar &amp; &quot;)&quot;" newline="True"/>
+            <output expression="&quot;Lowest Score: &quot; &amp; names[lowIndex] &amp; &quot; (&quot; &amp; lowVar &amp; &quot;)&quot;" newline="True"/>
+        </body>
+    </function>
+    <function name="displayNamesAndScores" type="None" variable="">
+        <parameters>
+            <parameter name="names" type="String" array="True"/>
+            <parameter name="scores" type="Integer" array="True"/>
+        </parameters>
+        <body>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <output expression="&quot;Forward Order:&quot;" newline="True"/>
+            <for variable="i" start="0" end="9" direction="inc" step="1">
+                <output expression="names[i] &amp; &quot;: &quot; &amp; scores[i]" newline="True"/>
+            </for>
+        </body>
+    </function>
+    <function name="displayNamesAndScoresReverse" type="None" variable="">
+        <parameters>
+            <parameter name="names" type="String" array="True"/>
+            <parameter name="scores" type="Integer" array="True"/>
+        </parameters>
+        <body>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <output expression="&quot;Reverse Order:&quot;" newline="True"/>
+            <for variable="i" start="9" end="0" direction="dec" step="1">
+                <output expression="names[i] &amp; &quot;: &quot; &amp; scores[i]" newline="True"/>
+            </for>
+        </body>
+    </function>
+    <function name="loadData" type="None" variable="">
+        <parameters>
+            <parameter name="names" type="String" array="True"/>
+            <parameter name="scores" type="Integer" array="True"/>
+        </parameters>
+        <body>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <open expression="&quot;students.txt&quot;" mode="read"/>
+            <for variable="i" start="0" end="9" direction="inc" step="1">
+                <read variable="names[i]"/>
+                <read variable="scores[i]"/>
+            </for>
+            <close mode="read"/>
+        </body>
+    </function>
+</flowgorithm>

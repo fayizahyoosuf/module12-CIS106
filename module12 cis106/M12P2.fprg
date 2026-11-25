@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="Module 12 Problem 2"/>
+        <attribute name="authors" value="Student"/>
+        <attribute name="about" value="Parallel arrays for last names and exam scores displayed forward and reverse"/>
+        <attribute name="saved" value="2026-11-25 09:04:47 AM"/>
+        <attribute name="created" value="2026-11-25 09:01:00 AM"/>
+        <attribute name="edited" value="2026-11-25 09:01:00 AM"/>
+        <attribute name="edited" value="c2hhbWE7REVTS1RPUC1HSFRTUVVGOzIwMjYtMTEtMjU7MDk6MDQ6NDcgQU07MTszMDMx"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="lastNames" type="String" array="True" size="10"/>
+            <declare name="examScores" type="Integer" array="True" size="10"/>
+            <assign variable="lastNames[0]" expression="&quot;Smith&quot;"/>
+            <assign variable="lastNames[1]" expression="&quot;Johnson&quot;"/>
+            <assign variable="lastNames[2]" expression="&quot;Williams&quot;"/>
+            <assign variable="lastNames[3]" expression="&quot;Brown&quot;"/>
+            <assign variable="lastNames[4]" expression="&quot;Jones&quot;"/>
+            <assign variable="lastNames[5]" expression="&quot;Garcia&quot;"/>
+            <assign variable="lastNames[6]" expression="&quot;Miller&quot;"/>
+            <assign variable="lastNames[7]" expression="&quot;Davis&quot;"/>
+            <assign variable="lastNames[8]" expression="&quot;Rodriguez&quot;"/>
+            <assign variable="lastNames[9]" expression="&quot;Martinez&quot;"/>
+            <assign variable="examScores[0]" expression="88"/>
+            <assign variable="examScores[1]" expression="92"/>
+            <assign variable="examScores[2]" expression="79"/>
+            <assign variable="examScores[3]" expression="85"/>
+            <assign variable="examScores[4]" expression="95"/>
+            <assign variable="examScores[5]" expression="91"/>
+            <assign variable="examScores[6]" expression="76"/>
+            <assign variable="examScores[7]" expression="84"/>
+            <assign variable="examScores[8]" expression="89"/>
+            <assign variable="examScores[9]" expression="94"/>
+            <call expression="displayNamesAndScores(lastNames, examScores)"/>
+            <call expression="displayNamesAndScoresReverse(lastNames, examScores)"/>
+        </body>
+    </function>
+    <function name="displayNamesAndScores" type="None" variable="">
+        <parameters>
+            <parameter name="names" type="String" array="True"/>
+            <parameter name="scores" type="Integer" array="True"/>
+        </parameters>
+        <body>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <output expression="&quot;Student Last Names and Exam Scores (Forward Order):&quot;" newline="True"/>
+            <for variable="i" start="0" end="9" direction="inc" step="1">
+                <output expression="names[i] &amp; &quot;: &quot; &amp; scores[i]" newline="True"/>
+            </for>
+        </body>
+    </function>
+    <function name="displayNamesAndScoresReverse" type="None" variable="">
+        <parameters>
+            <parameter name="names" type="String" array="True"/>
+            <parameter name="scores" type="Integer" array="True"/>
+        </parameters>
+        <body>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <output expression="&quot;Student Last Names and Exam Scores (Reverse Order):&quot;" newline="True"/>
+            <for variable="i" start="9" end="0" direction="dec" step="1">
+                <output expression="names[i] &amp; &quot;: &quot; &amp; scores[i]" newline="True"/>
+            </for>
+        </body>
+    </function>
+</flowgorithm>
